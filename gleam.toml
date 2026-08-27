@@ -14,7 +14,7 @@ gleam = ">= 1.13.0"
 allow_read = ["gleam.toml", "test", "build"]
 
 [dependencies]
-gleam_stdlib = { path = "../gleam-stdlib-native" }
+gleam_stdlib = { path = "../gleam-native-stdlib" }
 
 [dev-dependencies]
 testhelper = { "path" = "./testhelper" }
