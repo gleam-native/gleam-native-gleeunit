@@ -8,7 +8,12 @@ import testhelper
 
 @external(erlang, "gleeunit_test_ffi", "rescue")
 @external(javascript, "./gleeunit_test_ffi.mjs", "rescue")
-fn rescue(f: fn() -> t) -> Result(t, dynamic.Dynamic)
+fn rescue(f: fn() -> t) -> Result(t, dynamic.Dynamic) {
+  // These tests exercise gleeunit's own EUnit/JS reporting; the native
+  // target uses `gleam test`'s built-in runner and never runs them.
+  let _ = f
+  panic as "gleeunit's own tests only run on erlang and javascript"
+}
 
 pub fn panic_test() {
   let assert Error(e) = rescue(fn() { panic })

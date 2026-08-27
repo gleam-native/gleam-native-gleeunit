@@ -37,7 +37,10 @@ fn do_main() -> Nil {
 }
 
 @external(erlang, "erlang", "halt")
-fn halt(a: Int) -> Nil
+fn halt(a: Int) -> Nil {
+  let _ = a
+  panic as "gleeunit's runner is not used on this target"
+}
 
 fn gleam_to_erlang_module_name(path: String) -> String {
   case string.ends_with(path, ".gleam") {
@@ -56,7 +59,11 @@ fn gleam_to_erlang_module_name(path: String) -> String {
 }
 
 @external(erlang, "gleeunit_ffi", "find_files")
-fn find_files(matching matching: String, in in: String) -> List(String)
+fn find_files(matching matching: String, in in: String) -> List(String) {
+  let _ = matching
+  let _ = in
+  panic as "gleeunit's runner is not used on this target"
+}
 
 type Atom
 
@@ -65,7 +72,11 @@ type Encoding {
 }
 
 @external(erlang, "erlang", "binary_to_atom")
-fn dangerously_convert_string_to_atom(a: String, b: Encoding) -> Atom
+fn dangerously_convert_string_to_atom(a: String, b: Encoding) -> Atom {
+  let _ = a
+  let _ = b
+  panic as "gleeunit's runner is not used on this target"
+}
 
 type ReportModuleName {
   GleeunitProgress
@@ -83,4 +94,8 @@ type EunitOption {
 }
 
 @external(erlang, "gleeunit_ffi", "run_eunit")
-fn run_eunit(a: List(Atom), b: List(EunitOption)) -> Result(Nil, a)
+fn run_eunit(a: List(Atom), b: List(EunitOption)) -> Result(Nil, a) {
+  let _ = a
+  let _ = b
+  panic as "gleeunit's runner is not used on this target"
+}

@@ -1,3 +1,7 @@
+# Polyglot fork of gleeunit 1.11.0: the erlang and javascript runners are
+# untouched; native fallback bodies let the package compile on the native
+# target, where `gleam test`'s built-in discovery runner is used instead
+# of `gleeunit.main`.
 name = "gleeunit"
 version = "1.11.0"
 licences = ["Apache-2.0"]
@@ -10,7 +14,7 @@ gleam = ">= 1.13.0"
 allow_read = ["gleam.toml", "test", "build"]
 
 [dependencies]
-gleam_stdlib = ">= 1.0.0 and < 2.0.0"
+gleam_stdlib = { path = "../gleam-native-stdlib" }
 
 [dev-dependencies]
 testhelper = { "path" = "./testhelper" }
