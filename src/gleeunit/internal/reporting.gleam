@@ -237,4 +237,7 @@ fn read_file(path: String) -> Result(BitArray, dynamic.Dynamic) {
 }
 
 @external(javascript, "../../gleeunit_ffi.mjs", "read_file")
-fn read_file_text(path: String) -> Result(String, dynamic.Dynamic)
+fn read_file_text(path: String) -> Result(String, dynamic.Dynamic) {
+  let _ = path
+  Error(dynamic.nil())
+}
